@@ -3,7 +3,7 @@ import json
 import Date
 import re
 import json
-
+import icalendar
 
 class Course:
     def __init__(self):
