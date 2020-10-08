@@ -20,7 +20,7 @@ class Course:
         result = list(map(int, list(result[0])))
         result1 = re.findall("[单双]+", str)
         result1 = {"单": 2, "双": 2, "单双": 1}[result1[0]]
-        result2 = re.findall("星期([一二三四五六日]) [上下]午(\d+(?:,\d+)*)", str)
+        result2 = re.findall("星期([一二三四五六日]) [上下晚][午上](\d+(?:,\d+)*)", str)
         changeName = {"一": 0, "二": 1, "三": 2, "四": 3, "五": 4,
                       "六": 5, "日": 6}
         result2New = []
