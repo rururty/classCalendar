@@ -1,15 +1,18 @@
 import re
 
 class Course:
-    def __init__(self, name, className, teacher, number,
-                 classRoom, faculty, str):
+    def __init__(self, className, classRoom, faculty, number,
+                 name, teacher, str, time, credit, compulsory):
         self.name = name
         self.className = className
         self.teacher = teacher
-        self.number = number
+        self.number = int(number)
         self.classRoom = classRoom
         self.faculty = faculty
         self.lessons = Course.strToLessons(str)
+        self.time = time
+        self.credit = float(credit)
+        self.compulsory = compulsory
 
     @classmethod
     def strToLessons(cls, str):
@@ -28,4 +31,4 @@ class Course:
             new = tuple(new)
             result2New.append(new)
         weeks = list(range(result[0],result[1]+1,result1))
-        return {'weeks':weeks, 'classTimeNumber': result2}
+        return {'weeks':weeks, 'classTime': result2New}
