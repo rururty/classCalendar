@@ -81,7 +81,7 @@ def icsCreate(courses, semesterStartDate):
                                               seconds=0,
                                               milliseconds=0
                                               )
-                lessonEndTime = lessonStartTime + timedelta(weeks=week - 1, days=classTimeDay,
+                lessonEndTime = semesterStartDate + timedelta(weeks=week - 1, days=classTimeDay,
                                               hours=lessonStartHour.get(str(classTimeEndNumber)),
                                               minutes=lessonStartMinute.get(str(classTimeEndNumber)),
                                               seconds=0,
