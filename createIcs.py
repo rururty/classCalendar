@@ -45,7 +45,7 @@ def icsCreate(courses, semesterStartDate):
                     }
 
 
-                    event.add('summary', course.name)
+                    event.add('summary', course.name+" {}/{}".format(week, course.lessons["weeks"][-1]))
                     lessonStartTime = semesterStartDate \
                             + timedelta(weeks=week-1, days=classTimeDay,
                                         hours=lessonStartHour.get(str(classTimeStartNumber)),
