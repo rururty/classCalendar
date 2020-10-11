@@ -16,7 +16,7 @@ if __name__ == '__main__':
         courses.append(Course(*information))
     semesterStartDate = datetime(2020, 9, 14)
     cal = icsCreate(courses, semesterStartDate)
-    filename = "classCalendar-1.ics"
+    filename = "classCalendar.ics"
     f = open(os.path.join(filename), 'wb')
     f.write(cal.to_ical())
     f.close()

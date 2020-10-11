@@ -9,8 +9,10 @@ def icsCreate(courses, semesterStartDate):
     cal.add('X-WR_TIMEZONE', "Asia/Shanghai")
 
     for course in courses:
-        for week in course.lessons["weeks"]:
-            for classTime in course.lessons["classTime"]:
+        weeks = course.lessons["weeks"]
+        for week in weeks:
+            classTimes = course.lessons["classTime"]
+            for classTime in classTimes:
                 classTimeDay = classTime[0]
                 classTimeNumber = classTime[1]
                 classTimeStartNumber = classTimeNumber[0]
@@ -73,7 +75,7 @@ def icsCreate(courses, semesterStartDate):
                     '11': 35,
                     '12': 30
                 }
-                event.add('summary', course.name + " {}/{}".format(week, course.lessons["weeks"][-1]))
+                event.add('summary', course.name + " {}/{}".format(weeks.index(week) + 1, len(weeks)))
                 lessonStartTime = semesterStartDate \
                                   + timedelta(weeks=week - 1, days=classTimeDay,
                                               hours=lessonStartHour.get(str(classTimeStartNumber)),
