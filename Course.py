@@ -23,6 +23,7 @@ class Course:
         result2 = re.findall("星期([一二三四五六日]) [上下晚][午上](\d+(?:,\d+)*)", str)
         changeName = {"一": 0, "二": 1, "三": 2, "四": 3, "五": 4,
                       "六": 5, "日": 6}
+        #result2New实例[[[0],[1,2,3,4]]]
         result2New = []
         for i in result2:
             new = list(i)
@@ -30,6 +31,7 @@ class Course:
             new[1] = list(map(int, new[1].split(",")))
             new = tuple(new)
             result2New.append(new)
+        # weeks实例[1,2,3,4,5]
         weeks = list(range(result[0],result[1]+1,result1))
-
+        #{"weeks":[1,2,3,4,5], "classTime":[[[0],[1,2,3,4]]]}
         return {'weeks':weeks, 'classTime': result2New}
