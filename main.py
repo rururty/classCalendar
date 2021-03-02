@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 if __name__ == '__main__':
-    data = xlrd.open_workbook("class.xlsx")
+    data = xlrd.open_workbook("class.xls")
     table = data.sheets()[0]
     nrows = table.nrows
     ncols = table.ncols
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     for i in range(numberOfClass):
         information = table.row_values(i)
         courses.append(Course(*information))
-    semesterStartDate = datetime(2020, 9, 14)
+    semesterStartDate = datetime(2021, 3, 1)
     cal = icsCreate(courses, semesterStartDate)
     filename = "classCalendar-1.ics"
     f = open(os.path.join(filename), 'wb')

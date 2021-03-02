@@ -31,5 +31,5 @@ class Course:
             new = tuple(new)
             result2New.append(new)
         weeks = list(range(result[0],result[1]+1,result1))
-
+        print({'weeks':weeks, 'classTime': result2New})
         return {'weeks':weeks, 'classTime': result2New}
